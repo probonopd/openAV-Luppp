@@ -338,7 +338,7 @@ int ClipSelector::handle(int event)
 			if (clipNum >= numClips)
 				clipNum = numClips -1; // fix for clicking the lowest pixel
 
-			return clipNum;
+			//return clipNum;
 
 			// handle right clicks: popup menu
 			if ( Fl::event_state(FL_BUTTON3) ) {
