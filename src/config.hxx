@@ -69,6 +69,7 @@
 // Smoothing value
 #define SMOOTHING_CONST 0.05
 
+#define MAX_BARS 64
 
 ///     debug.hxx for printing convienience
 #include "debug.hxx"
