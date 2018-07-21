@@ -241,6 +241,14 @@ void handleDspEvents()
 				}
 				break;
 			}
+			case Event::GRID_ACTIVE: {
+				if ( availableRead >= sizeof(EventGridActive) ) {
+					EventGridActive ev(false);
+					jack_ringbuffer_read (rbToDsp, (char*)&ev, sizeof(EventGridActive) );
+					jack->getLogic()->gridEnable(ev.active);
+				}
+				break;
+			}
 			case Event::METRONOME_VOLUME: {
 				if ( availableRead >= sizeof(EventMetronomeVolume) ) {
 					EventMetronomeVolume ev(false);

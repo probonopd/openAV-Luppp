@@ -46,6 +46,7 @@ public:
 	void setBpmZeroOne( float bpm ); /// 0-1 input
 
 	void metronomeEnable(bool b);
+	void gridEnable(bool b);
 
 	void masterInputVol( float v );
 	void masterInputTo( int inputTo, float v);

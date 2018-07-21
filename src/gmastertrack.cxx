@@ -188,7 +188,14 @@ static void gmastertrack_button_callback(Fl_Widget *w, void *data)
 	}
 }
 
-#define OFST 33
+static void gmastertrack_grid_callback(Fl_Widget *w, void *data) {
+	Avtk::LightButton* b = (Avtk::LightButton*)w;
+	b->value( !b->value() );
+	EventGridActive e = EventGridActive( b->value() );
+	writeToDspRingbuffer( &e );
+}
+
+#define OFST 30
 GMasterTrack::GMasterTrack(int x, int y, int w, int h, const char* l ) :
 	Fl_Group(x, y, w, h),
 	title( strdup(l) ),
@@ -201,11 +208,12 @@ GMasterTrack::GMasterTrack(int x, int y, int w, int h, const char* l ) :
 	volBox(x+5, y+422, 140, 232, ""),
 
 	transport      ( x + w * 2/4.f - 18, y + 436 + OFST * 0, 44,28, "Stop" ),
-	tapTempo       ( x + w * 2/4.f - 18, y + 436 + OFST * 1, 44,28, "Tap" ),
-	metronomeButton( x + w * 2/4.f - 18, y + 436 + OFST * 2, 44,28,"Metro"),
+	tapTempo       ( x + w * 2/4.f - 18, y + 436 + OFST * 1, 44,28,  "Tap" ),
+	metronomeButton( x + w * 2/4.f - 18, y + 436 + OFST * 2, 44,28, "Metro"),
+	gridButton     ( x + w * 2/4.f - 18, y + 436 + OFST * 3, 44,28,  "Grid"),
 
-	tempoDial      ( x + w * 2/4.f - 18, y + 436 + OFST * 3.5, 45, 38,"BPM"),
-	returnVol      ( x + w * 2/4.f - 18, y + 436 + OFST * 5, 45, 38,"Return"),
+	tempoDial      ( x + w * 2/4.f - 18, y + 436 + OFST * 4.2, 45, 38,"BPM"),
+	returnVol      ( x + w * 2/4.f - 18, y + 436 + OFST * 5.5, 45, 38,"Return"),
 
 	inputVolume(x + 9,y + 26 + 4, w - 18, 30,""),
 
@@ -234,6 +242,9 @@ GMasterTrack::GMasterTrack(int x, int y, int w, int h, const char* l ) :
 	tapTempo.callback( gmastertrack_button_callback, &ID );
 
 	metronomeButton.callback( gmastertrack_button_callback, 0 );
+
+	gridButton.callback( gmastertrack_grid_callback, &ID );
+	gridButton.value(true);
 
 	tempoDial.callback( gmastertrack_tempoDial_callback, 0 );
 

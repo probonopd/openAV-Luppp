@@ -52,6 +52,12 @@ void Logic::metronomeEnable(bool b)
 	jack->getControllerUpdater()->metronomeEnable( b );
 }
 
+void Logic::gridEnable(bool b)
+{
+	//TODO
+	printf("Grid set to %d\n", b);
+}
+
 void Logic::masterInputVol( float v )
 {
 	jack->inputVolume( v );

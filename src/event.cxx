@@ -38,6 +38,7 @@ const char* EventTimeTempoTap::prettyName = "tempo_tap";
 const char* EventMetronomeActive::prettyName = "metronome:active";
 const char* EventMetronomeVolume::prettyName = "metronome:volume";
 
+const char* EventGridActive::prettyName = "grid:active";
 const char* EventGridEvent::prettyName = "grid:event";
 const char* EventGridLaunchScene::prettyName = "grid:launch_scene";
 

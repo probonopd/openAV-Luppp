@@ -91,6 +91,7 @@ private:
 	Avtk::Button transport;
 	Avtk::Button tapTempo;
 	Avtk::LightButton metronomeButton;
+	Avtk::LightButton gridButton;
 	Avtk::Dial   tempoDial;
 
 	Avtk::Dial   returnVol;

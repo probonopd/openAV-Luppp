@@ -73,6 +73,7 @@ enum EVENT_TYPE {
 	REQUEST_SAVE_BUFFER, // gets an audioBuffer of a certain size
 
 	/// Grid
+	GRID_ACTIVE,
 	GRID_EVENT, // press / release events
 	GRID_STATE, // state of one block
 	GRID_LAUNCH_SCENE, // launches a scene
@@ -885,6 +886,27 @@ public:
 
 	bool active;
 	EventMetronomeActive(bool a = false) : active(a) {}
+};
+
+class EventGridActive : public EventBase
+{
+public:
+	int type()
+	{
+		return int(GRID_ACTIVE);
+	}
+	uint32_t size()
+	{
+		return sizeof(EventGridActive);
+	}
+	static const char* prettyName;
+	const char* name()
+	{
+		return prettyName;
+	}
+
+	bool active;
+	EventGridActive(bool a = true) : active(a) {}
 };
 
 class EventMetronomeVolume : public EventBase
