@@ -19,6 +19,8 @@
 
 #include "genericmidi.hxx"
 
+#include <chrono>
+
 #include <string>
 #include <sstream>
 #include <fstream>
@@ -334,6 +336,11 @@ void GenericMIDI::midi(unsigned char* midi)
 
 
 	}
+
+#ifdef DEBUG_MIDI
+	long int now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+	printf("Action processed: %ld\n", now);
+#endif
 
 }
 

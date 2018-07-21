@@ -18,6 +18,7 @@
 
 #include "midi.hxx"
 
+#include <chrono>
 #include <sstream>
 
 #include "../jack.hxx"
@@ -118,7 +119,10 @@ void MidiIO::process(int nframes)
 	while ( index < event_count ) {
 		jack_midi_event_get(&event, inputBuffer, index);
 		midi( (unsigned char*) &event.buffer[0] );
-		//printf( "MIDI %i %i %i\n", int(event.buffer[0]), int(event.buffer[1]), int(event.buffer[2]) );
+#ifdef DEBUG_MIDI
+		long int now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+		printf( "MIDI %i %i %i time: %ld\n", int(event.buffer[0]), int(event.buffer[1]), int(event.buffer[2]), now );
+#endif
 		index++;
 	}
 
