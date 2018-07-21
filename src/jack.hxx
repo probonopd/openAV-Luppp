@@ -120,6 +120,8 @@ public:
 	void inputTo(INPUT_TO to, float v);
 	void inputToActive(INPUT_TO to, bool a);
 
+	void setGridEnable( bool b );
+
 	jack_client_t* getJackClientPointer()
 	{
 		return client;
@@ -188,6 +190,8 @@ private:
 
 	bool  inputToSendEnable;
 	float inputToSendEnableLag;
+
+	bool _gridEnable;
 
 	// JACK member variables
 	bool clientActive;

@@ -54,8 +54,7 @@ void Logic::metronomeEnable(bool b)
 
 void Logic::gridEnable(bool b)
 {
-	//TODO
-	printf("Grid set to %d\n", b);
+	jack->setGridEnable(b);	
 }
 
 void Logic::masterInputVol( float v )

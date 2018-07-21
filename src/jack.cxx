@@ -424,6 +424,12 @@ void Jack::unregisterMidiIO( MidiIO* mo )
 	}
 }
 
+void Jack::setGridEnable( bool b) 
+{
+	_gridEnable = b;
+	printf("Grid Enable set to %d\n", b);
+}
+
 int Jack::process (jack_nframes_t nframes)
 {
 	/// get buffers
