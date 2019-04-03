@@ -8,7 +8,7 @@ os:
 before_install:
 - echo $LANG
 - echo $LC_ALL
-- sudo apt-get install libjpeg-dev libsndfile1-dev libsigc++-2.0-dev libfontconfig1-dev libxft-dev libcairo-dev python3-pip python3-setuptools liblo-dev
+- sudo apt-get install libjpeg-dev libsndfile1-dev libsigc++-2.0-dev libfontconfig1-dev libxft-dev libcairo-dev python3-pip python3-setuptools liblo-dev libjack-dev libsamplerate0-dev ninja-build
 - git clone git://git.tuxfamily.org/gitroot/non/fltk.git ntk
 - cd ntk && sudo ./waf configure build install && cd ..
 - pip3 install meson
