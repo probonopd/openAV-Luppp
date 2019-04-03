@@ -12,14 +12,10 @@ install:
 - if cd ntk; then git pull; else git://git.tuxfamily.org/gitroot/non/fltk.git ntk && cd ntk; fi
 - sudo ./waf configure build install && cd ..
 - pip3 install meson
-jobs:
-  include:
-    - stage: configure
-      script: meson build
-    - stage: build
-      script: ninja -C build
-    - stage: test
-      script: ninja -C build test
+script:
+- meson build
+- ninja -C build
+- ninja -C build test
 
 cache: 
   directories:
