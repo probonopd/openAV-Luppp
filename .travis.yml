@@ -16,6 +16,7 @@ script:
 - meson build
 - ninja -C build
 
-cache:
+cache: 
   directories:
     - $PWD/ntk
+    - $HOME/.cache/pip
