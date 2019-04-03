@@ -7,6 +7,7 @@ os:
 before_install:
 - echo $LANG
 - echo $LC_ALL
+- pip install meson
 - meson build
 script:
 - ninja -C build
