@@ -5,13 +5,16 @@ compiler:
 - gcc
 os:
 - linux
-before_install:
-- echo $LANG
-- echo $LC_ALL
+install:
+- echo $HOME
 - sudo apt-get install libjpeg-dev libsndfile1-dev libsigc++-2.0-dev libfontconfig1-dev libxft-dev libcairo-dev python3-pip python3-setuptools liblo-dev libjack-dev libsamplerate0-dev ninja-build
 - git clone git://git.tuxfamily.org/gitroot/non/fltk.git ntk
 - cd ntk && sudo ./waf configure build install && cd ..
 - pip3 install meson
-- meson build
 script:
+- meson build
 - ninja -C build
+
+cache:
+  directories:
+    - $HOME/ntk
