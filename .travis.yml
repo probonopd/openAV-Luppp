@@ -1,4 +1,5 @@
-language: cpp
+language: python
+python: 3.6
 dist: xenial
 compiler:
 - clang
