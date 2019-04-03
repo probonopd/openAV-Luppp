@@ -1,0 +1,12 @@
+language: cpp
+dist: xenial
+compiler:
+- clang
+os:
+- linux
+before_install:
+- echo $LANG
+- echo $LC_ALL
+- meson build
+script:
+- ninja -C build
