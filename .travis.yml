@@ -11,7 +11,11 @@ before_install:
 - echo $LC_ALL
 - sudo apt-get install libjpeg-dev libsndfile1-dev libsigc++-2.0-dev libfontconfig1-dev libxft-dev libcairo-dev
 - git clone git://git.tuxfamily.org/gitroot/non/fltk.git ntk
-- cd ntk && ./waf configure && ./waf && sudo ./waf install && cd ..
+- cd ntk
+- ./waf configure 
+- ./waf 
+- sudo ./waf install 
+- cd ..
 - pip3 install meson
 - meson build
 script:
