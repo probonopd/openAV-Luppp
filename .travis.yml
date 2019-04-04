@@ -19,5 +19,5 @@ script:
 
 cache: 
   directories:
-    - $PWD
+    - $PWD/ntk
     - $HOME/.cache/pip
