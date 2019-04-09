@@ -16,7 +16,7 @@ script:
 - meson --prefix /usr build
 - ninja -C build
 - ninja -C build test
-- DESTDIR=./appdir ninja -C build install
+- DESTDIR=./appdir ninja -C build install ; find ./appdir
 - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
 - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
 - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
